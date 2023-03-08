@@ -13,14 +13,13 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: '3.10'
-    - name: Install Truffle
-      run: npm install -g truffle
     - name: Install Slither
-      run: pip install slither-analyzer
-    - name: Run Slither
-      run: slither --json report.json .
-    - name: Upload Slither report
-      uses: actions/upload-artifact@v2
+      run: |
+          python -m venv /tmp/pip-audit-env
+          source /tmp/pip-audit-env/bin/activate
+          python -m pip install --upgrade pip setuptools wheel
+          python -m pip install .
+    - name: Run pip-audit
+      uses: trailofbits/gh-action-pip-audit@v0.0.4
       with:
-        name: Slither report
-        path: report.json
+          virtual-environment: /tmp/pip-audit-env
