@@ -12,7 +12,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '2.7.18'
+        python-version: '3.8'
     - name: Install Slither
       run: pip install slither-analyzer
     - name: Run Slither
