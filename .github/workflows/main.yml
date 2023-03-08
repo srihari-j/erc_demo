@@ -5,7 +5,6 @@ on:
     paths:
       - 'contracts/**'
       - '.github/workflows/master.yaml'
-      - "**.py"
   pull_request:
     branches: [ master ]
     paths:
