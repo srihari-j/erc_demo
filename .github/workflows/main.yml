@@ -1,68 +1,19 @@
-name: Static Analysis
+name: Slither Smart Contract Audit
 
 on:
   push:
     branches:
-       - master
-    paths:
-      - 'contracts/**'
-      - '.github/workflows/main.yaml'
-  pull_request:
-    branches: 
-        - master
-    paths:
-      - 'contracts/**'
-      - '.github/workflows/main.yaml'
-
+      - master
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.8, 3.9]
-        node-version: [14.x]
-
+  audit:
+    runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: yarn install
-      - run: yarn compile
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
-        run: |
-          sudo snap install solc
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Summary of static ananlysis
-        run: |
-          echo "Running slither"
-          slither . --print human-summary
-      - name: Contract summary of static ananlysis
-        run: |
-          echo "Running slither"
-          slither . --print contract-summary
-      - name: Function summary
-        run: |
-          slither . --print function-summary
-      - name: Data dependency
-        run: |
-          slither . --print data-dependency
-      - name: Inheritance
-        run: |
-          slither . --print inheritance
-      - name: Save the result as a SARIF json file
-            #  slither . --json - --sarif results.sarif
-        run: |
-            python report.py
-      - uses: github/codeql-action/upload-sarif@v1
-        with:
-          # Path to SARIF file relative to the root of the repository
-          sarif_file: data/test.sarif
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.8'
+    - name: Install Slither
+      run: pip install slither-analyzer
+    - name: Run Slither
+      run: slither .
