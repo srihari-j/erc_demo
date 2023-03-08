@@ -66,11 +66,3 @@ jobs:
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: data/test.sarif
-
-      # - id: upload-file
-      #   uses: google-github-actions/upload-cloud-storage@main
-      #   with:
-      #     credentials: ${{ secrets.gcp_credentials }}
-      #     path: results.sarif
-      #     destination: ${{ secrets.BUCKET_NAME }}/security
-#openzeppelin-example/slither.yaml at main ·
