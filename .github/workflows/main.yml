@@ -17,6 +17,8 @@ jobs:
       run: npm install -g truffle
     - name: Install Slither
       run: pip install slither-analyzer
+    - name: Compile Contracts
+      run: npx truffle compile --all
     - name: Run Slither
       run: slither --json report.json .
     - name: Upload Slither report
