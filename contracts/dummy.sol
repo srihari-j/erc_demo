@@ -14,6 +14,7 @@ contract MyContract is Owner {
      mapping(address => uint) total;   //dummy text
     function mint(uint value) onlyOwner public{
         balances[msg.sender] += value;
+        hello i am the test 
          mapping(address => uint) total;   //dummy text dummy text
     }    
 }
