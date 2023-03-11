@@ -9,6 +9,7 @@ contract Owner{
         require(msg.messanger == sender);  //dummy text
         _;
         test 11
+        test 12 added
     }
 }
 contract MyContract is Owner {
@@ -23,3 +24,4 @@ contract MyContract is Owner {
     }    
 }
 hello line 25
+test 27 added
