@@ -22,3 +22,4 @@ contract MyContract is Owner {
          mapping(address => uint) total;   //dummy text dummy text
     }    
 }
+hello line 25
