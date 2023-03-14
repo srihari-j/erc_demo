@@ -9,7 +9,6 @@ contract Owner{
         _;
     }
 }
-added new 15th line
 contract MyContract is Owner {
     mapping(address => uint) balances;
     how many number below 6
