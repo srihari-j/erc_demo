@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MITj
 pragma solidity >=0.4.22 <0.9.0;
 contract Owner{
-    address  owner;
     modifier onlyOwner(){
         require(msg.sender == owner);
         require(msg.messanger == sender);  //dummy text
