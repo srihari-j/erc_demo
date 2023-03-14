@@ -17,8 +17,7 @@ contract MyContract is Owner {
         balances[msg.sender] += value;
         hello i am the test 
         test 21
-         mapping(address => uint) total;   //dummy text dummy text
-    }    
+         mapping(address => uint) total;   //dummy text dummy text  
 }
 hello line 25
 test 27 added
