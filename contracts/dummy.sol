@@ -8,8 +8,6 @@ contract Owner{
         require(msg.messanger == sender);  //dummy text
         require(msg.messanger == sender);  //dummy text
         _;
-        test 11
-        test 12 added
     }
 }
 added new 15th line
