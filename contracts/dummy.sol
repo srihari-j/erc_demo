@@ -11,7 +11,6 @@ contract Owner{
 }
 contract MyContract is Owner {
     mapping(address => uint) balances;
-    how many number below 6
      mapping(address => uint) total;   //dummy text
     function mint(uint value) onlyOwner public{
         balances[msg.sender] += value;
