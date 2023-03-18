@@ -1,28 +1,60 @@
-name: Slither Smart Contract Audit
-
+name: Static Analysis
 on:
   push:
-    branches:
-      - master
+    branches: [master]
+    paths:
+      - "contracts/**"
+      - ".github/workflows/slither.yaml"
+  pull_request:
+    branches: [master]
+    paths:
+      - "contracts/**"
+
 jobs:
-  audit:
-    runs-on: ubuntu-20.04
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.9]
+        node-version: [16.x]
+
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
-    - name: Install Truffle
-      run: npm install -g truffle
-    - name: Install Slither
-      run: pip install slither-analyzer
-    - name: Compile Contracts
-      run: npx truffle compile --all
-    - name: Run Slither
-      run: slither --json report.json .
-    - name: Upload Slither report
-      uses: actions/upload-artifact@v2
-      with:
-        name: Slither report
-        path: report.json
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: yarn install
+     # - run: yarn compile
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          sudo snap install solc
+          python -m pip install --upgrade pip
+          pip install slither-analyzer==0.8.1 solc-select==0.2.1
+
+      - name: Summary of static ananlysis
+        run: |
+          slither . --print human-summary
+
+      - name: Contract summary of static ananlysis
+        run: |
+          slither . --print contract-summary
+
+      - name: Function summary
+        run: |
+          slither . --print function-summary
+
+      - name: Inheritance
+        run: |
+          slither . --print inheritance
+
+      - name: Data dependency
+        run: |
+          slither . --print data-dependency
+          
