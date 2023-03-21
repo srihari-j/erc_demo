@@ -1,15 +1,19 @@
-// SPDX-License-Identifier: MITj
-pragma solidity >=0.4.22 <0.9.0;
-contract Owner{
-    modifier onlyOwner(){
-        require(msg.sender == owner);
-        _;
+// Specify the version of Solidity to use
+pragma solidity ^0.8.19;
+
+// Declare the smart contract
+contract SimpleBank {
+    // Declare a variable to store the balance of the account
+    uint public balance;  //updated the balance
+
+    // Define a function to deposit funds into the account
+    function deposit(uint amount) public {
+        balance += amount;
+    }
+
+    // Define a function to withdraw funds from the account
+    function withdraw(uint amount) public {
+        require(amount <= balance, "Insufficient balance");
+        balance -= amount;
     }
 }
-contract MyContract is Owner {
-    mapping(address => uint) balances;
-    function mint(uint value) onlyOwner public{
-        balances[msg.sender] += value;
-
-}
-
