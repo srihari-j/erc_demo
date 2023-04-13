@@ -1,4 +1,4 @@
-name: Static Analysis
+name: Static AnalysisDemo
 on:
   push:
     branches: [master]
