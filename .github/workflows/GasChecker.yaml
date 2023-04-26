@@ -51,6 +51,8 @@ jobs:
       - name: Summary of static ananlysis
         run: |
           slither "contracts/GasChecker.sol" --print human-summary
+          solc-select install 0.8.4
+          solc-select use 0.8.4
 
       - name: Contract summary of static ananlysis
         run: |
