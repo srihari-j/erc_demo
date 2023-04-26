@@ -44,7 +44,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo snap install solc 0.8.19
+          sudo snap install solc 
+          solc-select install all
           python -m pip install --upgrade pip
           pip install slither-analyzer==0.8.1 solc-select==0.2.1
 
