@@ -1,0 +1,177 @@
+[
+	{
+		"elements": [
+			{
+				"type": "contract",
+				"name": "EthReceiver",
+				"source_mapping": {
+					"start": 63,
+					"length": 305,
+					"filename_relative": "contracts/EthReceiver.sol",
+					"filename_absolute": "D:\\SrihariDemo\\contracts\\EthReceiver.sol",
+					"filename_short": "EthReceiver.sol",
+					"is_dependency": false,
+					"lines": [
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16
+					],
+					"starting_column": 1,
+					"ending_column": 2,
+					"_ext_source_hash": "4941636bd0dbe112d821830579c9c40b"
+				}
+			},
+			{
+				"type": "function",
+				"name": "receive",
+				"source_mapping": {
+					"start": 135,
+					"length": 56,
+					"filename_relative": "contracts/EthReceiver.sol",
+					"filename_absolute": "D:\\SrihariDemo\\contracts\\EthReceiver.sol",
+					"filename_short": "EthReceiver.sol",
+					"is_dependency": false,
+					"lines": [
+						8,
+						9,
+						10
+					],
+					"starting_column": 5,
+					"ending_column": 6,
+					"_ext_source_hash": "77aae72bf140f6129444f2bf22c3be94"
+				},
+				"type_specific_fields": {
+					"parent": {
+						"type": "contract",
+						"name": "EthReceiver",
+						"source_mapping": {
+							"start": 63,
+							"length": 305,
+							"filename_relative": "contracts/EthReceiver.sol",
+							"filename_absolute": "D:\\SrihariDemo\\contracts\\EthReceiver.sol",
+							"filename_short": "EthReceiver.sol",
+							"is_dependency": false,
+							"lines": [
+								5,
+								6,
+								7,
+								8,
+								9,
+								10,
+								11,
+								12,
+								13,
+								14,
+								15,
+								16
+							],
+							"starting_column": 1,
+							"ending_column": 2
+						}
+					},
+					"signature": "receive()"
+				}
+			}
+		],
+		"description": "Contract locking ether found:\n\tContract EthReceiver (EthReceiver.sol#5-16) has payable functions:\n\t - EthReceiver.receive() (EthReceiver.sol#8-10)\n\tBut does not have a function to withdraw the ether\n",
+		"markdown": "Contract locking ether found:\n\tContract [EthReceiver](contracts/EthReceiver.sol#L5-L16) has payable functions:\n\t - [EthReceiver.receive()](contracts/EthReceiver.sol#L8-L10)\n\tBut does not have a function to withdraw the ether\n",
+		"first_markdown_element": "contracts/EthReceiver.sol#L5-L16",
+		"id": "2a6bff7fa869dfe4c9da1d8355ff75c1284f442461686ee04219c0526276281a",
+		"check": "locked-ether",
+		"impact": "Medium",
+		"confidence": "High"
+	},
+	{
+		"elements": [
+			{
+				"type": "pragma",
+				"name": "^0.8.19",
+				"source_mapping": {
+					"start": 33,
+					"length": 24,
+					"filename_relative": "contracts/dummy.sol",
+					"filename_absolute": "D:\\SrihariDemo\\contracts\\dummy.sol",
+					"filename_short": "dummy.sol",
+					"is_dependency": false,
+					"lines": [
+						2
+					],
+					"starting_column": 1,
+					"ending_column": 25,
+					"_ext_source_hash": "e8adb6b9c74298704d61a5df433d1842"
+				},
+				"type_specific_fields": {
+					"directive": [
+						"solidity",
+						"^",
+						"0.8",
+						".19"
+					]
+				}
+			}
+		],
+		"description": "Pragma version^0.8.19 (dummy.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.6.12/0.7.6/0.8.16\n",
+		"markdown": "Pragma version[^0.8.19](contracts/dummy.sol#L2) necessitates a version too recent to be trusted. Consider deploying with 0.6.12/0.7.6/0.8.16\n",
+		"first_markdown_element": "contracts/dummy.sol#L2",
+		"id": "369b94a59a41f50a5d410c3a82542306f1d543b92a4aab7a0e84f354e00fae87",
+		"check": "solc-version",
+		"impact": "Informational",
+		"confidence": "High"
+	},
+	{
+		"elements": [],
+		"description": "solc-0.8.19 is not recommended for deployment\n",
+		"markdown": "solc-0.8.19 is not recommended for deployment\n",
+		"first_markdown_element": "",
+		"id": "bc0e6f5edf86fec0e8668af5b6535a97ff60d9ff435d7796649d79d0b5e89ed6",
+		"check": "solc-version",
+		"impact": "Informational",
+		"confidence": "High"
+	},
+	{
+		"elements": [
+			{
+				"type": "pragma",
+				"name": "^0.8.19",
+				"source_mapping": {
+					"start": 35,
+					"length": 24,
+					"filename_relative": "contracts/EthReceiver.sol",
+					"filename_absolute": "D:\\SrihariDemo\\contracts\\EthReceiver.sol",
+					"filename_short": "EthReceiver.sol",
+					"is_dependency": false,
+					"lines": [
+						3
+					],
+					"starting_column": 1,
+					"ending_column": 25,
+					"_ext_source_hash": "e8adb6b9c74298704d61a5df433d1842"
+				},
+				"type_specific_fields": {
+					"directive": [
+						"solidity",
+						"^",
+						"0.8",
+						".19"
+					]
+				}
+			}
+		],
+		"description": "Pragma version^0.8.19 (EthReceiver.sol#3) necessitates a version too recent to be trusted. Consider deploying with 0.6.12/0.7.6/0.8.16\n",
+		"markdown": "Pragma version[^0.8.19](contracts/EthReceiver.sol#L3) necessitates a version too recent to be trusted. Consider deploying with 0.6.12/0.7.6/0.8.16\n",
+		"first_markdown_element": "contracts/EthReceiver.sol#L3",
+		"id": "ce18e24bbc3a003a9140db2675e72b8557533a0700bab805a657316ec33b0822",
+		"check": "solc-version",
+		"impact": "Informational",
+		"confidence": "High"
+	}
+]
