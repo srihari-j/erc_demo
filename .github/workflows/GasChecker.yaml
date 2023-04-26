@@ -96,3 +96,6 @@ jobs:
         with:
          name: Slither report
          path: report.json
+         
+         
+         
