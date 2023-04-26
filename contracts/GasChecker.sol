@@ -1,21 +1,16 @@
 // SPDX-License-Identifier: MIT
-
-
+//run now
 pragma solidity ^0.8.19;
 
-// Declare the smart contract
-contract SimpleBank {
-    // Declare a variable to store the balance of the account
-    uint public balance;  //updated the balance
+abstract contract EthReceiver {
+    error EthDepositRejected();
 
-    // Define a function to deposit funds into the account
-    function deposit(uint amount) public {
-        balance += amount;
+    receive() external payable {
+        _receive();
     }
 
-    // Define a function to withdraw funds from the account
-    function withdraw(uint amount) public {
-        require(amount <= balance, "Insufficient balance");
-        balance -= amount;
+    function _receive() internal virtual {
+        // solhint-disable-next-line avoid-tx-origin
+        if (msg.sender == tx.origin) revert EthDepositRejected();
     }
 }
