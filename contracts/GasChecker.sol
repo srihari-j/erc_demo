@@ -2,7 +2,7 @@
 //run now
 pragma solidity ^0.8.19;
 
-abstract contract EthReceiver {
+abstract contract GasChecker {
     error EthDepositRejected();
 
     receive() external payable {
