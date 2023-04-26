@@ -50,23 +50,23 @@ jobs:
 
       - name: Summary of static ananlysis
         run: |
-          slither . --print human-summary
+          slither "contracts/GasChecker.sol" --print human-summary
 
       - name: Contract summary of static ananlysis
         run: |
-          slither . --print contract-summary
+          slither "contracts/GasChecker.sol" --print contract-summary
 
       - name: Function summary
         run: |
-          slither . --print function-summary
+          slither "contracts/GasChecker.sol" --print function-summary
 
       - name: Inheritance
         run: |
-          slither . --print inheritance
+          slither "contracts/GasChecker.sol" --print inheritance
 
       - name: Data dependency
         run: |
-          slither . --print data-dependency
+          slither "contracts/GasChecker.sol" --print data-dependency
           
       - name: Upload report as artifact
         uses: actions/upload-artifact@v2
