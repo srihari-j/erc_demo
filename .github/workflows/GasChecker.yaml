@@ -34,7 +34,7 @@ jobs:
         # run: yarn compile
       
       - name: Compile contracts
-        run: npx truffle compile contracts/GasChecker.sol
+        run: npx truffle compile "contracts/GasChecker.sol"
         
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
