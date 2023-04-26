@@ -1,18 +1,21 @@
 // SPDX-License-Identifier: MIT
 
+
 pragma solidity ^0.8.19;
 
-contract GasChecker {
-    error GasCostDiffers(uint256 expected, uint256 actual);
+// Declare the smart contract
+contract SimpleBank {
+    // Declare a variable to store the balance of the account
+    uint public balance;  //updated the balance
 
-    modifier checkGasCost(uint256 expected) {
-        uint256 gas = gasleft();
-        _;
-        unchecked {
-            gas -= gasleft();
-        }
-        if (expected > 0 && gas != expected) {
-            revert GasCostDiffers(expected, gas);
-        }
+    // Define a function to deposit funds into the account
+    function deposit(uint amount) public {
+        balance += amount;
+    }
+
+    // Define a function to withdraw funds from the account
+    function withdraw(uint amount) public {
+        require(amount <= balance, "Insufficient balance");
+        balance -= amount;
     }
 }
