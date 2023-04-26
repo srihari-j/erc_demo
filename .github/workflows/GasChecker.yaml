@@ -35,6 +35,7 @@ jobs:
       
       - name: Compile contracts
         run: npx truffle compile "contracts/GasChecker.sol"
+        #displayName: truffle compile $(contractName)
         
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
