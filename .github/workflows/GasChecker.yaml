@@ -50,6 +50,7 @@ jobs:
 
       - name: Summary of static ananlysis
         run: |
+          solc-select
           slither "contracts/GasChecker.sol" --print human-summary
           
 
