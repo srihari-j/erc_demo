@@ -1,45 +1,17 @@
-pragma solidity >=0.4.25 <0.6.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.17;
 
-contract HelloBlockchain
-{
-     //Set of States
-    enum StateType { Request, Respond}
+struct Point {
+    uint x;
+    uint y;
+}
 
-    //List of properties
-    StateType public  State;
-    address public  Requestor;
-    address public  Responder;
+error Unauthorized(address caller);
 
-    string public RequestMessage;
-    string public ResponseMessage;
+function add(uint x, uint y) pure returns (uint) {
+    return x + y;
+}
 
-    // constructor function
-    constructor(string memory message) public
-    {
-        Requestor = msg.sender;
-        RequestMessage = message;
-        State = StateType.Request;
-    }
-
-    // call this function to send a request
-    function SendRequest(string memory requestMessage) public
-    {
-        if (Requestor != msg.sender)
-        {
-            revert();
-        }
-
-        RequestMessage = requestMessage;
-        State = StateType.Request;
-    }
-
-    // call this function to send a response
-    function SendResponse(string memory responseMessage) public
-    {
-        Responder = msg.sender;
-
-        // call ContractUpdated() to record this action
-        ResponseMessage = responseMessage;
-        State = StateType.Respond;
-    }
+contract Foo {
+    string public name = "Foo";
 }
