@@ -1,4 +1,5 @@
-// example.sol
+// Specify the version of Solidity to use
+pragma solidity ^0.8.19;
 contract example {
         // Process state
 //New text added
