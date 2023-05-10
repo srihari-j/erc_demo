@@ -1,4 +1,4 @@
-// Specify the version of Solidity to use ... check
+// Specify the version of Solidity to use ... check..
 pragma solidity ^0.8.19;
 
 // example.sol
