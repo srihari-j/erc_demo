@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: MIT
+//ok
 pragma solidity ^0.8.17;
 
 contract Function {
